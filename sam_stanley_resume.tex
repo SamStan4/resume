@@ -16,13 +16,24 @@
 % the {} is the actual document type that we are using, here we are using article
 \documentclass[10pt]{article}
 
+% packages that are going to help me build this thing
+\usepackage[margin=0.2in]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=black,
+  citecolor=black
+}
+
 % where all of our code is going to go
 \begin{document}
-
-content
-
-\LaTeX
-
-
-
+  % this is going to be the title
+  \begin{center}
+    {\fontsize{20}{16}\selectfont \textbf{Samuel Stanley}}\\
+    Olympia WA \quad | \quad (360)-529-1617 \quad | \quad
+    \href{mailto:samcstanle@gmail.com}{samcstanle@gmail.com} \quad | \quad
+    \href{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{LinkedIn} \quad | \quad
+    \href{https://github.com/SamStan4}{GitHub}
+  \end{center}
 \end{document}
