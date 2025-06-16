@@ -19,6 +19,10 @@
 % packages that are going to help me build this thing
 \usepackage[margin=0.2in]{geometry}
 \usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage[normalem]{ulem}   % for \uline (underlines)
+\usepackage{xcolor}           % for custom colors
+
 \hypersetup{
   colorlinks=true,
   urlcolor=blue,
@@ -30,10 +34,16 @@
 \begin{document}
   % this is going to be the title
   \begin{center}
-    {\fontsize{20}{16}\selectfont \textbf{Samuel Stanley}}\\
-    Olympia WA \quad | \quad (360)-529-1617 \quad | \quad
-    \href{mailto:samcstanle@gmail.com}{samcstanle@gmail.com} \quad | \quad
-    \href{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{LinkedIn} \quad | \quad
-    \href{https://github.com/SamStan4}{GitHub}
+    {\fontsize{20}{20}\selectfont \textbf{Samuel Stanley}}\\[5pt]
+    Olympia WA | (360)-529-1617 |
+    \href{mailto:samcstanle@gmail.com}{\uline{samcstanle@gmail.com}} |
+    \href{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{\uline{LinkedIn}} |
+    \href{https://github.com/SamStan4}{\uline{GitHub}}
+    \rule{\linewidth}{0.4pt}
+  \end{center}
+  % education section
+  \vspace{-15pt}
+  \begin{center}
+    {\fontsize{15}{20}\selectfont \textbf{Education}} % want to decrease the top margin
   \end{center}
 \end{document}
