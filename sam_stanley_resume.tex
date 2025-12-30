@@ -1,15 +1,11 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%                                                                                                                                               %
-% This is the code that is going to go into creating my resume.                                                                                 %
-% I am taking this opportunity to lear LaTeX so this might look bad as it is my                                                                 %
-% first time using the language.                                                                                                                %
-%                                                                                                                                               %
-% Also I am using this as help: https://www.youtube.com/watch?v=ydOTMQC7np0&ab_channel=freeCodeCamp.org                                         %
-%                                                                                                                                               %
-% Date created: 6/16/25                                                                                                                         %
-% Last edited: 6/16/25                                                                                                                          %
-%                                                                                                                                               %
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                                                                                              %
+% This is the code that is going to go into creating my resume.                                                                %
+%                                                                                                                              %
+% Date created: 6/16/25                                                                                                        %
+% Last edited: 12/30/25                                                                                                        %
+%                                                                                                                              %
+%------------------------------------------------------------------------------------------------------------------------------%
 
 % document class refers to the type of document that we are creating
 % the [] is the optional arguments that we can pass, like font size
@@ -30,28 +26,62 @@
   citecolor=black
 }
 
+% Resume section macro
+\newcommand{\resumesection}[1]{
+ \begin{center}
+   \rule{\linewidth}{0.4pt}
+ \end{center}
+ \vspace{-15pt}
+ \begin{center}
+   {\fontsize{11}{13}\selectfont \textbf{#1}}
+ \end{center}
+}
+
+
 % where all of our code is going to go
 \begin{document}
-  % this is going to be the title
+
+  % MARK: Header
   \begin{center}
     {\fontsize{20}{20}\selectfont \textbf{Samuel Stanley}}\\[5pt]
     Seattle WA | (360)-529-1617 |
     \href{mailto:samcstanle@gmail.com}{\uline{samcstanle@gmail.com}} |
     \href{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{\uline{LinkedIn}} |
     \href{https://github.com/SamStan4}{\uline{GitHub}} |
-    \href{http://www.samstanley.org/}{\uline{Portfolio}}  % TODO: change this to actual website when done
-    \rule{\linewidth}{0.4pt}
+    \href{http://www.samstanley.org/}{\uline{Portfolio}}
   \end{center}
-  % education section
+
+  % MARK: Education
   \vspace{-15pt}
-  \begin{center}
-    {\fontsize{15}{20}\selectfont \textbf{Education}}
-  \end{center}
-  \vspace{-15pt}
+  \resumesection{Education}
+
+  % GIT
+  \vspace{-10pt}
   \noindent
-  \makebox[\linewidth]{\textbf{Washington State University} \hfill \textbf{Pullman, WA}}
-  \noindent
-  \makebox[\linewidth]{B.S. in Computer Science, Minor in Mathematics \hfill Aug 2022 -- June 2025}
+  \makebox[\linewidth]{\textbf{Georgia Institute of Technology} \hfill \textbf{Atlanta, GA}}\\
+  \makebox[\linewidth]{M.S. in Computer Science \hfill August 2026 -- May 2028 (Expected)}
+  Cumulative GPA: \textbf{4.0/4.0}, Summa Cum Laude
+
+  % WSU
   \vspace{5pt}
-  Cumulative GPA: \textbf{3.99 / 4.0}, Summa Cum Laude
+  \noindent
+  \makebox[\linewidth]{\textbf{Washington State University} \hfill \textbf{Pullman, WA}}\\
+  \makebox[\linewidth]{B.S. in Computer Science, Minor in Mathematics \hfill August 2022 -- June 2025}
+  Cumulative GPA: \textbf{3.99/4.0}, Summa Cum Laude
+
+  % MARK: Experience
+  \vspace{-10pt}
+  \resumesection{Experience}
+
+  \vspace{-10pt}
+  \noindent
+  \makebox[\linewidth]{\textbf{Oracle Cloud Infrastructure (OCI)} \hfill \textbf{Seattle, WA}}\\
+  \makebox[\linewidth]{Software Engineer \hfill July 2025 -- Present}
+  \vspace{-20pt}
+  \begin{itemize}
+    \itemsep -4pt
+    \item \textbf{TODO:} write the bullet points
+  \end{itemize}
+
+
 \end{document}
