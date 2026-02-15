@@ -18,6 +18,9 @@
 \usepackage{lmodern}
 \usepackage[normalem]{ulem}   % for \uline (underlines)
 \usepackage{xcolor}           % for custom colors
+\usepackage{enumitem}
+
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*}
 
 \hypersetup{
   colorlinks=true,
@@ -37,6 +40,12 @@
  \end{center}
 }
 
+\newcommand{\skillbullet}[3][0.5cm]{% optional first argument = indent
+  \noindent
+  \hspace*{#1}% indent from left margin
+  \textbullet\hspace{0.5em}%
+  \makebox[2.6cm][l]{\textbf{#2:}} #3\\
+}
 
 % where all of our code is going to go
 \begin{document}
@@ -78,13 +87,21 @@
   \noindent
   \makebox[\linewidth]{\textbf{Oracle Cloud Infrastructure (OCI)} \hfill \textbf{Seattle, WA}}\\
   \makebox[\linewidth]{Software Engineer \hfill July 2025 -- Present}
-  \vspace{-20pt}
+  % \vspace{-20pt}
   \begin{itemize}
-    \itemsep -4pt
     \item \textbf{TODO:} write the bullet points
   \end{itemize}
 
   \vspace{-10pt}
   \resumesection{Projects}
+
+  % MARK: Skills
+  \vspace{-10pt}
+  \resumesection{Skills}
+
+  \skillbullet[1cm]{Languages}{C/C++, Go, Java, Python, SQL}
+  \skillbullet[1cm]{Systems}{Linux, Networking (TCP/IP, UDP), Distributed Systems}
+  \skillbullet[1cm]{Tools}{Git, Docker, Terraform, CMake, Make, GitHub Actions}
+  \skillbullet[1cm]{Soft Skills}{Software Development Life Cycle, CI/CD, Analytical Problem Solving, Effective Communication}
 
 \end{document}
