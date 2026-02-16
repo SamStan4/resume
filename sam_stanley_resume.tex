@@ -1,107 +1,114 @@
-%------------------------------------------------------------------------------------------------------------------------------%
-%                                                                                                                              %
-% This is the code that is going to go into creating my resume.                                                                %
-%                                                                                                                              %
-% Date created: 6/16/25                                                                                                        %
-% Last edited: 12/30/25                                                                                                        %
-%                                                                                                                              %
-%------------------------------------------------------------------------------------------------------------------------------%
+\documentclass[10pt]{article}
 
-% document class refers to the type of document that we are creating
-% the [] is the optional arguments that we can pass, like font size
-% the {} is the actual document type that we are using, here we are using article
-\documentclass[9pt]{article}
+% Page layout
+\usepackage[margin=0.25in]{geometry}
 
-% packages that are going to help me build this thing
-\usepackage[margin=0.2in]{geometry}
-\usepackage{hyperref}
+% Fonts and formatting
 \usepackage{lmodern}
-\usepackage[normalem]{ulem}   % for \uline (underlines)
-\usepackage{xcolor}           % for custom colors
+\usepackage{xcolor}
+\usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{tabularx}
 
-\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*}
+% --------------------------------------------------- GLOBAL SPACING CONTROL ---------------------------------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.20} % tighten line spacing
+\setlength{\tabcolsep}{4pt} % tighter tables
+
+% tighter bullets
+\setlist[itemize]{
+    noitemsep,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt,
+    leftmargin=1.2em
+}
 
 \hypersetup{
-  colorlinks=true,
-  urlcolor=blue,
-  linkcolor=black,
-  citecolor=black
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black
 }
 
-% Resume section macro
+% ---------------------------------------------------- RESUME SECTION MACRO ----------------------------------------------------
 \newcommand{\resumesection}[1]{
- \begin{center}
-   \rule{\linewidth}{0.4pt}
- \end{center}
- \vspace{-15pt}
- \begin{center}
-   {\fontsize{11}{13}\selectfont \textbf{#1}}
- \end{center}
+  \vspace{-5pt}
+  \noindent\rule{\linewidth}{0.4pt}
+  \par
+  {\centering\large\bfseries #1\par}
+  \vspace{2pt}
 }
 
-\newcommand{\skillbullet}[3][0.5cm]{% optional first argument = indent
-  \noindent
-  \hspace*{#1}% indent from left margin
-  \textbullet\hspace{0.5em}%
-  \makebox[2.6cm][l]{\textbf{#2:}} #3\\
+% ----------------------------------------------------- RESUME ENTRY MACRO -----------------------------------------------------
+\newcommand{\resumeentry}[4]{
+    \textbf{#1} \hfill #2 \\
+    #3 \hfill #4
+    \vspace{2pt}
 }
 
-% where all of our code is going to go
+% ------------------------------------------------------ NICE LINK MACRO -------------------------------------------------------
+\newcommand{\nicelink}[2]{
+    \href{#1}{\textcolor{blue}{#2}}
+}
+
+
+
 \begin{document}
 
-  % MARK: Header
-  \begin{center}
-    {\fontsize{20}{20}\selectfont \textbf{Samuel Stanley}}\\[5pt]
-    Seattle WA | (360)-529-1617 |
-    \href{mailto:samcstanle@gmail.com}{\uline{samcstanle@gmail.com}} |
-    \href{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{\uline{LinkedIn}} |
-    \href{https://github.com/SamStan4}{\uline{GitHub}} |
-    \href{http://www.samstanley.org/}{\uline{Portfolio}}
-  \end{center}
+    % ------------------------------------------------------ HEADER ------------------------------------------------------------
+    {\centering
+        {\LARGE \textbf{Samuel Stanley}} \\[-1pt]
+        Seattle, WA • 
+        (360) 529-1617 • 
+        \nicelink{mailto:samcstanle@gmail.com}{samcstanle@gmail.com} • 
+        \nicelink{https://www.linkedin.com/in/samuel-stanley-1ba48b24a/}{LinkedIn} • 
+        \nicelink{https://github.com/SamStan4}{GitHub} • 
+        \nicelink{http://www.samstanley.org/}{Portfolio}
+    \par}
 
-  % MARK: Education
-  \vspace{-20pt}
-  \resumesection{Education}
+    % ----------------------------------------------------- EDUCATION ----------------------------------------------------------
+    \resumesection{Education}
 
-  % Georgia Institute of Technology
-  % \vspace{-10pt}
-  % \noindent
-  % \makebox[\linewidth]{\textbf{Georgia Institute of Technology} \hfill \textbf{Atlanta, GA}}\\
-  % \makebox[\linewidth]{M.S. in Computer Science \hfill August 2026 -- May 2028 (Expected)}
-  % Cumulative GPA: \textbf{4.0/4.0}, Summa Cum Laude
+    \resumeentry
+    {Washington State University}
+    {Pullman, WA}
+    {B.S. in Computer Science, Minor in Mathematics}
+    {Aug 2022 -- Jun 2025}
 
-  % Washington State University
-  % \vspace{5pt}
-  \vspace{-10pt}
-  \noindent
-  \makebox[\linewidth]{\textbf{Washington State University} \hfill \textbf{Pullman, WA}}\\
-  \makebox[\linewidth]{B.S. in Computer Science, Minor in Mathematics \hfill August 2022 -- June 2025}
-  Cumulative GPA: \textbf{3.99/4.0}, Summa Cum Laude
+    Cumulative GPA: \textbf{3.99/4.0}, Summa Cum Laude
 
-  % MARK: Experience
-  \vspace{-10pt}
-  \resumesection{Experience}
+    % ----------------------------------------------------- EXPERIENCE ---------------------------------------------------------
 
-  \vspace{-10pt}
-  \noindent
-  \makebox[\linewidth]{\textbf{Oracle Cloud Infrastructure (OCI)} \hfill \textbf{Seattle, WA}}\\
-  \makebox[\linewidth]{Software Engineer \hfill July 2025 -- Present}
-  % \vspace{-20pt}
-  \begin{itemize}
-    \item \textbf{TODO:} write the bullet points
-  \end{itemize}
+    \resumesection{Experience}
 
-  \vspace{-10pt}
-  \resumesection{Projects}
+    \resumeentry
+    {Oracle Cloud Infrastructure (OCI)}
+    {Seattle, WA}
+    {Software Engineer}
+    {Jul 2025 -- Present}
 
-  % MARK: Skills
-  \vspace{-10pt}
-  \resumesection{Skills}
+    \begin{itemize}
+        \item TODO: Add impact-driven bullet points
+        \item Built distributed service in Go handling X requests/sec
+        \item Reduced latency by X\% through system optimization
+    \end{itemize}
 
-  \skillbullet[1cm]{Languages}{C/C++, Go, Java, Python, SQL}
-  \skillbullet[1cm]{Systems}{Linux, Networking (TCP/IP, UDP), Distributed Systems}
-  \skillbullet[1cm]{Tools}{Git, Docker, Terraform, CMake, Make, GitHub Actions}
-  \skillbullet[1cm]{Soft Skills}{Software Development Life Cycle, CI/CD, Analytical Problem Solving, Effective Communication}
+    %------------------------------------------------------- SKILLS ------------------------------------------------------------
+    \resumesection{Skills Summary}
+
+    \begin{tabularx}{\textwidth}{l X}
+
+        \textbf{Languages} & C/C++, Go, Java, JavaScript, Python, SQL \\
+        \textbf{Systems} & Linux, Networking (TCP/IP, UDP), Distributed Systems \\
+        \textbf{Tools} & Git, Docker, Terraform, PostgreSQL, CMake, Make, GitHub Actions \\
+        \textbf{Soft Skills} & SDLC, CI/CD, Analytical Problem Solving, Communication \\
+
+    \end{tabularx}
+
+    %------------------------------------------------------ PROJECTS -----------------------------------------------------------
+    \vspace{10pt}
+    \resumesection{Projects}
 
 \end{document}
