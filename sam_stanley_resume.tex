@@ -11,6 +11,7 @@
 \usepackage{tabularx}
 
 % --------------------------------------------------- GLOBAL SPACING CONTROL ---------------------------------------------------
+
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
@@ -33,6 +34,9 @@
 }
 
 % ---------------------------------------------------- RESUME SECTION MACRO ----------------------------------------------------
+% Arguments:
+% 1 = Resume section title
+
 \newcommand{\resumesection}[1]{
   \vspace{-5pt}
   \noindent\rule{\linewidth}{0.4pt}
@@ -42,18 +46,39 @@
 }
 
 % ----------------------------------------------------- RESUME ENTRY MACRO -----------------------------------------------------
-\newcommand{\resumeentry}[4]{
-    \textbf{#1} \hfill #2 \\
-    #3 \hfill #4
-    \vspace{2pt}
+% Arguments:
+% 1 = Organization name. E.g. Oracle Cloud Infrastructure
+% 2 = Location information. E.g. Pullman, WA
+% 3 = Title / focus. E.g. Software Engineer or B.S. in Computer Science, Minor in Mathematics
+% 4 = Time Span. E.g. Aug 2022 -- Jun 2025
+
+\newcommand{\resumeentry}[4]{%
+    \textbf{#1} \hfill \textbf{#2} \\
+    #3 \hfill #4%
+    \vspace{2pt}%
 }
 
 % ------------------------------------------------------ NICE LINK MACRO -------------------------------------------------------
-\newcommand{\nicelink}[2]{
-    \href{#1}{\textcolor{blue}{#2}}
+
+\newcommand{\nicelink}[2]{%
+    \href{#1}{\textcolor{blue}{#2}}%
 }
 
+% ------------------------------------------------------- PROJECT MACRO --------------------------------------------------------
+% Arguments:
+% 1 = Project title
+% 2 = Technologies / tools (optional)
+% 3 = Description (can be multiple lines / itemize)
+% 4 = Link
 
+\newcommand{\project}[4]{%
+  % Title + link
+  {\textbf{#1}} • {\textbf{#2}} • {\nicelink{#3}{GitHub Link}} \\[-2pt]%
+  % Description
+  \vspace{-10pt}
+  #4%
+  \vspace{4pt}% small gap after project
+}
 
 \begin{document}
 
@@ -86,13 +111,25 @@
     \resumeentry
     {Oracle Cloud Infrastructure (OCI)}
     {Seattle, WA}
-    {Software Engineer}
-    {Jul 2025 -- Present}
+    {Software Engineer - Key Management Service}
+    {Jul 2025 - Present}
 
     \begin{itemize}
-        \item TODO: Add impact-driven bullet points
-        \item Built distributed service in Go handling X requests/sec
-        \item Reduced latency by X\% through system optimization
+        \item Owned a safety initiative in Go, contributing to operational improvements and presented outcomes in executive operations meetings.
+        \item Led an initiative to optimize system resource usage, reducing disk consumption by 20\% across production hosts.
+        \item Owned the deployment cycle for key applications globally, ensuring reliable delivery and consistent system operation.
+    \end{itemize}
+
+    \resumeentry
+    {Voiland College of Engineering and Architecture}
+    {Pullman, WA}
+    {Teaching Assistant, Algorithm Design and Analysis}
+    {January 2024 - May 2024}
+
+    \begin{itemize}
+        \item Oversaw a lab section of 18 Data Structure students at Washington State University.
+        \item Responsible for hosting a weekly 3 hour lab where I demonstrated data structure methods for linked lists, stacks, queues, binary search trees, and other data structures.
+        \item Provided a minimum of two office hours per week where I debugged student’s programs and tutored them on computer science related topics including: discrete math, computer architecture, and algorithm design.
     \end{itemize}
 
     %------------------------------------------------------- SKILLS ------------------------------------------------------------
@@ -110,5 +147,63 @@
     %------------------------------------------------------ PROJECTS -----------------------------------------------------------
     \vspace{10pt}
     \resumesection{Projects}
+
+    \project
+        {ASL Alphabet Translator}
+        {Python, OpenCV, Mediapipe, scikit-learn, NumPy}
+        {https://github.com/SamStan4/ASL-alphabet-translator}
+        {%
+            \begin{itemize}
+                \item Implemented an ASL alphabet translator in Python using openCV, Mediapipe, scikit-learn, and NumPy.
+                \item Integrated scikit-learn for machine learning tasks including training a RandomForest classifier to translate alphabet signs.
+                \item Leveraged openCV for computer vision tasks including video capture and image processing.
+                \item Utilized Mediapipe and NumPy to convert hand positions into 3D vectors for model training and testing.
+            \end{itemize}
+        }
+
+    \project
+        {Graph Theorist Sketch Pad}
+        {JavaScript, React, p5.js}
+        {https://github.com/SamStan4/graph-theorist-sketch-pad/tree/main}
+        {%
+            \begin{itemize}
+                \item Developed a web application allowing users to construct and visually interact with a graph data structure.
+                \item Implemented algorithms such as spanning tree construction, Tarjan’s algorithm for bridge detection, and a small physics simulation to allow graphs to move in a fluid-like motion.
+            \end{itemize}
+        }
+
+    \project
+        {Yelp Data Set}
+        {Python, PyQt5, PostgreSQL}
+        {https://github.com/SamStan4/yelp-data-set/tree/main}
+        {%
+            \begin{itemize}
+                \item Developed a robust interface for managing part of the Yelp data set storing over 10,000 records in PostgreSQL database.
+                \item Built an intuitive user interface using PyQt5 to streamline data interaction and visualization.
+            \end{itemize}
+        }
+
+    \project
+        {CPU Scheduler Simulator}
+        {C}
+        {https://github.com/SamStan4/CPU-scheduling-simulator}
+        {%
+            \begin{itemize}
+                \item Implemented CPU scheduling policies such as First Come First serve, Round Robin, and Shortest Job First.
+                \item The simulator calculates the time to complete tasks and the efficiency of the schedulers.
+            \end{itemize}
+        }
+
+    \project
+        {Air Hockey}
+        {C++}
+        {https://github.com/SamStan4/air_hockey}
+        {%
+            \begin{itemize}
+                \item Implemented computer graphics in C++ using the SFML graphics library.
+                \item Leveraged physics formulas in order to simulate pseudo realistic game mechanics/physics.
+                \item Implemented a method to connect two computers via TCP socket networking in order to host a multiplayer game.
+            \end{itemize}
+        }
 
 \end{document}
